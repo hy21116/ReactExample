@@ -61,28 +61,20 @@ const App: () => Node = () => {
   };
 
   return (
-    <View>
-      <Text>Hello World!!</Text>
+    <View style={styles.container}>
+      <Text style={styles.hello}>Hello World!!</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+  hello: {
+    color: 'white',
   },
 });
 

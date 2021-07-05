@@ -16,6 +16,7 @@ import {
   StyleSheet,
   Text,
   Image,
+  Button,
   useColorScheme,
   View,
 } from 'react-native';
@@ -71,21 +72,41 @@ class Idol extends Component {
   }
 }
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+class App extends Component {
+  constructor(props) {
+    super(props);
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    this.state = {
+      address: '',
+    };
+  }
+
+  writeAddress = () => {
+    this.setState({
+      address: '서초구 양재동',
+    });
   };
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.hello}>Hello World!!</Text>
-      <Idol type={'firstImage'}></Idol>
-      <Idol type={'secondImage'}></Idol>
-    </View>
-  );
-};
+  resetAddress = () => {
+    this.setState({
+      address: '',
+    });
+  };
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.hello}>Hello World!!</Text>
+        <Idol type={'firstImage'}></Idol>
+        <Idol type={'secondImage'}></Idol>
+
+        <Text>{this.state.address}</Text>
+        <Button title={'My address'} onPress={this.writeAddress}></Button>
+        <Button title={'Reset'} onPress={this.resetAddress}></Button>
+      </View>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
